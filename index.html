@@ -396,19 +396,5 @@ function showBook(idx){
 }
 
 function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-<script>
-window.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const response = await fetch('book_cleaned.txt');
-    if (!response.ok) throw new Error('Failed to load book list');
-    const text = await response.text();
-
-    // Use the existing loader
-    loadBooks(text);
-  } catch (err) {
-    console.error(err);
-  }
-});
-</script>
 </body>
 </html>
