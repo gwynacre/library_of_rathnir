@@ -406,7 +406,7 @@ async function loadBooks() {
     
     // Optional: parse the book list however you like
     // Here’s a simple example that just displays it
-    const container = document.getElementById('book-list');
+    const container = document.getElementById('bookList');
     container.innerHTML = text
       .split('\n')
       .filter(line => line.trim() !== '')
