@@ -190,28 +190,6 @@
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<script>
-async function loadBooks() {
-  try {
-    const response = await fetch('book_cleaned.txt');
-    if (!response.ok) throw new Error('Failed to load book list');
-    const text = await response.text();
-    
-    // Optional: parse the book list however you like
-    // Here’s a simple example that just displays it
-    const container = document.getElementById('book-list');
-    container.innerHTML = text
-      .split('\n')
-      .filter(line => line.trim() !== '')
-      .map(line => `<p>${line}</p>`)
-      .join('');
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-window.addEventListener('DOMContentLoaded', loadBooks);
-</script>
 <body>
 <div class="wrap">
   <aside class="sidebar">
@@ -418,6 +396,28 @@ function showBook(idx){
 }
 
 function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+</script>
+<script>
+async function loadBooks() {
+  try {
+    const response = await fetch('book_cleaned.txt');
+    if (!response.ok) throw new Error('Failed to load book list');
+    const text = await response.text();
+    
+    // Optional: parse the book list however you like
+    // Here’s a simple example that just displays it
+    const container = document.getElementById('book-list');
+    container.innerHTML = text
+      .split('\n')
+      .filter(line => line.trim() !== '')
+      .map(line => `<p>${line}</p>`)
+      .join('');
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', loadBooks);
 </script>
 </body>
 </html>
